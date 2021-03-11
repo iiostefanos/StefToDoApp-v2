@@ -1,0 +1,42 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+            <h2>Sign Up</h2>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+            {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endif %}
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" class="form-control" id="username" aria-describedby="usernameHelp">
+                    <small id="usernameHelp" class="form-text text-muted">Please choose a unique username </small>
+                </div>
+                <div class="form-group">
+                    <label for="password1">Password</label>
+                    <input type="password" name="password1" class="form-control" id="password1">
+                    <small id="usernameHelp" class="form-text text-muted">Please enter your password... Not inspired? Press 'Generate' </small>
+                    <a href="https://generateurduparole.herokuapp.com/" target="_blank" class="btn btn-outline-success btn-sm" role="button">Generate</a>
+                </div>
+                <div class="form-group">
+                    <label for="password2">Confirm Password</label>
+                    <input type="password" name="password2" class="form-control" id="password2">
+                    <small id="usernameHelp" class="form-text text-muted">Please confirm your password </small>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+            <hr>
+            <div class="text-center">
+                Do you already have an account? <a href="{% url 'loginuser' %}">Login Here</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
