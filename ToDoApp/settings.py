@@ -25,7 +25,7 @@ SECRET_KEY = 'c&nu)3+isn=z_si^7y(o^iy$f5$x0zxc_q7z7e&3&+@8(u53l4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['5000-lime-cardinal-fsqilgfe.ws-eu03.gitpod.io', ]
 
 
 # Application definition
