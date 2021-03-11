@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'ToDoApp.urls'
@@ -76,8 +77,12 @@ WSGI_APPLICATION = 'ToDoApp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dfoe2br5thjepo',
+	    'HOST': 'ec2-54-145-102-149.compute-1.amazonaws.com',
+	    'PORT': '5432',
+	    'USER': 'zvotswovvwmpep',
+	    'PASSWORD': '9f8eaf28ee3e70f9156525619375712f9c89f9f34977285a52c69a36fdb7e847',
     }
 }
 
@@ -121,3 +126,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 LOGIN_URL = '/login'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
